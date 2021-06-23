@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/index.html'))
 })
 
@@ -19,7 +19,7 @@ app.get('/clarke', (req, res) => {
 })
 
 app.get('/hamilton', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/hopper.html'))
+    res.sendFile(path.join(__dirname, '/views/hamilton.html'))
 })
 
 app.get('/hopper', (req, res) => {
@@ -31,7 +31,9 @@ app.get('/lovelace', (req, res) => {
 })
 
 app.get('/turing', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/views/turing.html'))
+    res.sendFile(path.join(__dirname, '/views/turing.html'))
 })
+
+app.use(express.static("public/img"))
 
 app.listen(3030, () => console.log('Servidor corriendo'))
